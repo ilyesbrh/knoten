@@ -36,7 +36,8 @@
       <button class="forget" mat-button>Forgot password?</button>
       <div class="l-separation"></div>
       <div class="signup-container">
-        <span>Don’t have an account?</span> <button mat-button class="signup">Sign up</button>
+        <span>Don’t have an account?</span> <button mat-button (click)="openDialogSign()"  class="signup">Sign up</button>
+        <!-- [routerLink]="['./signup']" -->
       </div>
     </div>
   </div>

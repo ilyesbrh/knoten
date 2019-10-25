@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { SignupComponent } from '../signup/signup.component';
+import { CreateProjectComponent } from '../create-project/create-project.component';
 
 @Component({
   selector: 'app-landing',
@@ -17,6 +19,14 @@ export class LandingComponent implements OnInit {
     });
 
   }
+  createProject(): void {
+    const dialogRef = this.dialog.open(CreateProjectComponent, {
+      width: '748px',
+    });
+
+  }
+
+ 
   ngOnInit() {
   }
 

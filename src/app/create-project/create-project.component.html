@@ -1,0 +1,24 @@
+<div mat-dialog-content>
+    <div class="container">
+        <div class="sub-container">
+
+
+            <div class="input-container">
+                <input type="text" placeholder="Titre">
+
+                <input matInput [matDatepicker]="picker" placeholder="Date de création">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
+            <div class="description">
+                    <input type="text" placeholder="Déscription de métier">
+            </div>
+            <div class="l-separation"></div>
+            <div class="member">
+                    <input type="text" placeholder="Déscription de métier">
+                    <button class="look-for-member" mat-raised-button>Look for</button>
+            </div>
+
+        </div>
+    </div>
+</div>
