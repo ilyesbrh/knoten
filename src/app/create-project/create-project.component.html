@@ -1,24 +1,35 @@
 <div mat-dialog-content>
     <div class="container">
-        <div class="sub-container">
+        <div class="element">
+            <span>Title</span>
+            <input type="text" placeholder="ex:machin">
+        </div>
 
+        <div class="element">
+            <span>Description</span>
+            <input type="text" placeholder="ex:machin">
+        </div>
+        <div class="element">
+            <span>Fields</span>
+            <input type="text" placeholder="ex:#machin">
+        </div>
+        <div class="element">
+            <span>Requested roles</span>
+            <input type="text" placeholder="ex:#machin">
+        </div>
 
-            <div class="input-container">
-                <input type="text" placeholder="Titre">
+        <div class="LastElement">
+            <div class="renumeration">
+                    <span> Renumeration</span>
+                    <div class="checkbox">
+                            <mat-checkbox class="first">Yes</mat-checkbox>
+                            <mat-checkbox class="second" >No</mat-checkbox>
+                    </div>
+                    
+            </div>
 
-                <input matInput [matDatepicker]="picker" placeholder="Date de création">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </div>
-            <div class="description">
-                    <input type="text" placeholder="Déscription de métier">
-            </div>
-            <div class="l-separation"></div>
-            <div class="member">
-                    <input type="text" placeholder="Members">
-                    <button class="look-for-member" mat-raised-button>Look for members</button>
-            </div>
-            
+            <button mat-button class="create"> Create</button>
+           
 
         </div>
     </div>
