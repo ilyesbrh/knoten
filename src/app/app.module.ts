@@ -9,10 +9,11 @@ import { LandingComponent } from './landing/landing.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /* angular material components */
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
-import { MatButtonModule , MatCheckboxModule ,MatDatepickerModule ,MatFormFieldModule  } from '@angular/material';
+import { MatButtonModule,MatIconModule , MatCheckboxModule ,MatDatepickerModule ,MatFormFieldModule  } from '@angular/material';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SignupComponent } from './signup/signup.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CreateProjectComponent } from './create-project/create-project.componen
     LoginComponent,
     LandingComponent,
     SignupComponent,
-    CreateProjectComponent
+    CreateProjectComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -33,8 +35,9 @@ import { CreateProjectComponent } from './create-project/create-project.componen
     MatCheckboxModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    MatMomentDateModule
-
+    MatMomentDateModule,
+    MatIconModule,
+    MatCheckboxModule
 
   ],
   entryComponents: [LoginComponent,SignupComponent,CreateProjectComponent],
