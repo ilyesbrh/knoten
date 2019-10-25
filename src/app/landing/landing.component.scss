@@ -1,0 +1,86 @@
+.container {
+  background-image: url("../../assets/background.png");
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  .navbar {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 5.5%;
+    left: 8.6%;
+    right: 8.6%;
+    .logo {
+      width: 93px;
+      height: 22px;
+    }
+    .navigators {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .btn {
+        font-family: 'Montserrat';
+        font-size: 18px;
+        font-weight: 800;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #3f3194;
+      }
+    }
+  }
+  .center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .large {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 48px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #3f3194;
+    }
+    .small {
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 4.3%;
+      font-size: 18px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #3f3194;
+    }
+    .action {
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      margin-top: 10.3%;
+      width: 255px;
+      height: 75px;
+      border-radius: 37.5px;
+      background-image: linear-gradient(to top, #5c48d9, #6d54ff);
+      font-size: 18px;
+      font-weight: 900;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 3.6px;
+      text-align: left;
+      color: #ffffff;
+    }
+  }
+}
