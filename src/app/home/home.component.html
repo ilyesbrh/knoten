@@ -17,15 +17,26 @@
       </g>
     </svg>
     <div class="navigators">
-      <button class="btn" mat-button>How it works</button>
-      <button class="btn" mat-button>About us</button>
-      <button class="btn" mat-button>Contact us</button>
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
     </div>
   </div>
-  <div class="center-container">
-    <div class="large">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit.</div>
-    <div class="small">Neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet consectetur</div>
-    <button class="action" mat-button (click)="openDialog()">GET STARTED</button>
+  <div class="content-container">
+    <ng-container *ngIf="true; then thenTemplate; else elseTemplate"></ng-container>
+    <ng-template #thenTemplate>
+      <div class="sub-content">
+        <div class="text">Neque porro quisquam est, qui dolorem ipsum, <br>quia dolor sit amet consectetur</div>
+        <button class="create" mat-raised-button>CREATE A PROJECT</button>
+        <button class="look" mat-button>LOOK FOR A PROJECT</button>
+      </div>
+      <img src="../../assets/lost.svg" width="400px" height="500px" alt="img">
+    </ng-template>
+    <ng-template #elseTemplate>
+
+
+
+    </ng-template>
 
   </div>
 </div>
