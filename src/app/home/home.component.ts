@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { CreateProjectComponent } from '../create-project/create-project.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   participate = [];
   creator = [];
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private dialog: MatDialog) {
   }
   async ngOnInit() {
     this.participate = await this.dataService.getProjects('p') as any;
@@ -19,6 +21,12 @@ export class HomeComponent implements OnInit {
     console.log(this.participate);
     console.log('[C]');
     console.log(this.creator);
+  }
+
+  createProject(): void {
+    const dialogRef = this.dialog.open(CreateProjectComponent, {
+      width: '748px',
+    });
 
   }
 

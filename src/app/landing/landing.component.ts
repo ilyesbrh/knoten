@@ -21,12 +21,7 @@ export class LandingComponent implements OnInit {
     });
 
   }
-  createProject(): void {
-    const dialogRef = this.dialog.open(CreateProjectComponent, {
-      width: '748px',
-    });
-
-  }
+  
 
 
   ngOnInit() {

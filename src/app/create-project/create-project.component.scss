@@ -1,9 +1,110 @@
-.container{
-    .sub-container{
+.container {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-        .input-container{
-            
-        }
+  .element {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+
+    width: fit-content;
+
+    span {
+      // width: 37px;
+      height: 16px;
+
+      font-size: 19.5px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #3f3194;
     }
 
+    input {
+      margin-top: 15px;
+      width: 503px;
+      height: 53px;
+      border-radius: 10px;
+      border: solid 1px #dbdbdb;
+      background-color: #ffffff;
+    }
+  }
+
+  .LastElement {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    width: 505px;
+    .renumeration {
+        margin-top: 18px;
+        align-items: center;
+        justify-content: center;
+      span {
+        //height: 15px;
+
+        font-size: 19.5px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #3f3194;
+      }
+      .checkbox {
+        //  width: 26px;
+        margin-top: 10px;
+        //height: 26px;
+        display: flex;
+        justify-content: space-between;
+        
+        .first{
+            border-radius: 7px;
+            border-width: 50px;
+           // border: solid 1px #cccccc;
+            background-color: #ffffff;
+            color: #dbdbdb;
+            display: flex;
+            flex-direction: row;
+            margin-left: 2px;
+        }
+        .second{
+            border-radius: 7px;
+            border-width: 50px;
+           // border: solid 1px #cccccc;
+            background-color: #ffffff;
+            color: #dbdbdb;
+            display: flex;
+            flex-direction: row;
+            margin-left: 2px;
+        }
+      }
+    }
+    .create {
+      display: flex;
+      justify-content: center;
+      margin-top: 6%;
+      width: 213px;
+      height: 63px;
+      border-radius: 10px;
+      background-color: #49e1e6;
+      font-size: 18px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #ffffff;
+    }
+  }
 }
