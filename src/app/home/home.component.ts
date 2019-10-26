@@ -27,7 +27,23 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(CreateProjectComponent, {
       width: '748px',
     });
-
+    dialogRef.afterClosed().subscribe(v => {
+      if (v) {
+        console.log('[PROJECT DETAILS]' + v);
+        this.creator.push(v);
+      }
+    });
   }
+
+
+  // getProje(){
+
+  //    for (let elt in this.dataService.getProjects('c'))
+  //    {
+  //      console.log(elt)
+  //     this.creator.push(elt)
+  //    }
+
+  // }
 
 }

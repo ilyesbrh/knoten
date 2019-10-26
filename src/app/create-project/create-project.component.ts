@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-create-project',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateProjectComponent implements OnInit {
 
-  constructor() { }
+  metadata = {
+    title: '',
+    description: '',
+    fields: '',
+    members: '',
+    creator: localStorage.getItem('id')
+  }
+  constructor(private dataS: DataService, private dialogRef: MatDialogRef<CreateProjectComponent>) { }
 
   ngOnInit() {
+  }
+
+  onSend() {
+    this.dataS.createProject(this.metadata);
+    this.dialogRef.close(this.metadata);
   }
 
 }

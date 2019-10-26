@@ -1,36 +1,35 @@
 <div mat-dialog-content>
-    <div class="container">
-        <div class="element">
-            <span>Title</span>
-            <input type="text" placeholder="ex:machin">
-        </div>
-
-        <div class="element">
-            <span>Description</span>
-            <input type="text" placeholder="ex:machin">
-        </div>
-        <div class="element">
-            <span>Fields</span>
-            <input type="text" placeholder="ex:#machin">
-        </div>
-        <div class="element">
-            <span>Requested roles</span>
-            <input type="text" placeholder="ex:#machin">
-        </div>
-
-        <div class="LastElement">
-            <div class="renumeration">
-                    <span> Renumeration</span>
-                    <div class="checkbox">
-                            <mat-checkbox class="first">Yes</mat-checkbox>
-                            <mat-checkbox class="second" >No</mat-checkbox>
-                    </div>
-                    
-            </div>
-
-            <button mat-button class="create"> Create</button>
-           
-
-        </div>
+  <div class="container">
+    <div class="element">
+      <span>Title</span>
+      <input type="text" placeholder="1 billion idea" [(ngModel)]="metadata.title">
     </div>
+
+    <div class="element">
+      <span>Description</span>
+      <input type="text" placeholder="best idea ever..." [(ngModel)]="metadata.description">
+    </div>
+    <div class="element">
+      <span>Fields</span>
+      <input type="text" placeholder="Machine_learning" [(ngModel)]="metadata.fields">
+    </div>
+    <div class="element">
+      <span>Requested roles</span>
+      <input type="text" placeholder="web_Developer" [(ngModel)]="metadata.members">
+    </div>
+
+    <div class="LastElement">
+      <div class="remuneration">
+        <span> Remuneration</span>
+        <div class="checkbox">
+          <mat-checkbox class="first">Yes</mat-checkbox>
+          <mat-checkbox class="second">No</mat-checkbox>
+        </div>
+      </div>
+
+      <button mat-button class="create" (click)="onSend()"> Create</button>
+
+
+    </div>
+  </div>
 </div>

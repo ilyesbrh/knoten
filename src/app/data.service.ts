@@ -7,11 +7,17 @@ import { map } from "rxjs/operators";
 })
 export class DataService {
 
+
   constructor(private http: HttpClient, private router: Router) {
   }
 
   URL = 'http://127.0.0.1:5000/api/';
 
+  createProject(params) {
+    this.http.post(this.URL + 'project/create', params).subscribe((v) => console.log(v));
+    console.log(params);
+
+  }
   async getProjects(role) {
     return await this.http.post(this.URL + 'project/post',
       { id: localStorage.getItem('id'), role }).pipe(map((v: any) => v.result)).toPromise();

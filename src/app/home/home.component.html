@@ -28,23 +28,50 @@
     <ng-template #thenTemplate>
       <div class="sub-content">
         <div class="text">Neque porro quisquam est, qui dolorem ipsum, <br>quia dolor sit amet consectetur</div>
-        <button class="create"  (click)="createProject()"  mat-raised-button>CREATE A PROJECT</button>
+        <button class="create" (click)="createProject()" mat-raised-button>CREATE A PROJECT</button>
         <button class="look" mat-button>LOOK FOR A PROJECT</button>
       </div>
       <img src="../../assets/lost.svg" width="400px" height="500px" alt="img">
     </ng-template>
+
     <ng-template #elseTemplate>
 
       <div class="main-container">
-
         <div class="topBar">
-          <div class="description">My Projects <span class="count">12</span></div>
+          <div class="description">My created Projects <span class="count">{{creator.length}}</span></div>
           <div class="search-bar-container">
             <input type="text">
-            <mat-icon>search</mat-icon>
+            <button mat-icon-button>
+              <mat-icon>search</mat-icon>
+            </button>
           </div>
         </div>
         <div class="projects-container">
+            <div *ngFor="let item of creator" class="card mat-elevation-z6">
+              <div class="title-container">
+                <div class="title">
+                  {{item.title}}
+                </div>
+              </div>
+              <div class="description-content">{{item.description}}</div>
+              <div class="fields-container">
+                <div *ngFor="let f of item.fields" class="fields">
+                  {{f}}
+                </div>
+              </div>
+              <div class="details">
+                 10/26/2019
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="main-container" style="margin-top: 30px;">
+        <div class="topBar">
+          <div class="description">member at<span class="count">{{participate.length}}</span></div>
+
+        </div>
+        <div class="projects-container">
+
         </div>
       </div>
 
