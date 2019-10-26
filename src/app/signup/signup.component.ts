@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  metaData = {
+    email: '',
+    password: '',
+    first: '',
+    last: '',
+    fields: '',
+    about: ''
+  };
+
+  constructor(public dataService: DataService, private dialogRef: MatDialogRef<SignupComponent>) { }
 
   ngOnInit() {
+  }
+
+  signUp() {
+    this.dataService.signup(this.metaData);
+    this.dialogRef.close();
   }
 
 }

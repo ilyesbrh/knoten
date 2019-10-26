@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatIconRegistry } from '@angular/material';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +8,18 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(
-    private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
-  ) {
-    this.matIconRegistry.addSvgIcon(
-      'notification',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../../assets/notification.svg')
-    );
+  participate = [];
+  creator = [];
+  constructor(private dataService: DataService) {
   }
-  ngOnInit() {
+  async ngOnInit() {
+    this.participate = await this.dataService.getProjects('p') as any;
+    this.creator = await this.dataService.getProjects('c') as any;
+    console.log('[P]');
+    console.log(this.participate);
+    console.log('[C]');
+    console.log(this.creator);
+
   }
 
 }

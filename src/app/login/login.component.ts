@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupComponent } from '../signup/signup.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +9,12 @@ import { MatDialog } from '@angular/material';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private dialogRef: MatDialogRef<LoginComponent>) { }
   openDialogSign(): void {
-    const dialogRef = this.dialog.open(SignupComponent, {
+    const d = this.dialog.open(SignupComponent, {
       width: '748px',
     });
+    d.afterClosed().subscribe(v => this.dialogRef.close());
 
   }
 

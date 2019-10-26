@@ -23,7 +23,8 @@
     </div>
   </div>
   <div class="content-container">
-    <ng-container *ngIf="true; then thenTemplate; else elseTemplate"></ng-container>
+    <ng-container *ngIf="creator.length === 0 && participate.length === 0; then thenTemplate; else elseTemplate">
+    </ng-container>
     <ng-template #thenTemplate>
       <div class="sub-content">
         <div class="text">Neque porro quisquam est, qui dolorem ipsum, <br>quia dolor sit amet consectetur</div>
@@ -34,7 +35,18 @@
     </ng-template>
     <ng-template #elseTemplate>
 
+      <div class="main-container">
 
+        <div class="topBar">
+          <div class="description">My Projects <span class="count">12</span></div>
+          <div class="search-bar-container">
+            <input type="text">
+            <mat-icon>search</mat-icon>
+          </div>
+        </div>
+        <div class="projects-container">
+        </div>
+      </div>
 
     </ng-template>
 
