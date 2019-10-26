@@ -1,8 +1,19 @@
-from flask import Flask, jsonify, request, json
+
+
+from flask import Flask, jsonify, request, json, Response
 from flask_pymongo import PyMongo
 from flask_cors import CORS
 from flask_restful import Resource, Api
+
+
 app = Flask(__name__)
+app.config['MONGO_DBNAME'] = 'knoten'
+app.config['MONGO_URI'] = 'mongodb://admin1:test123@ds239578.mlab.com:39578/knoten?retryWrites=false'
+
+CORS(app)
+
+mongo = PyMongo(app)
+api = Api(app)
 
 
 def userResp(data):
@@ -39,18 +50,6 @@ def projList(pl):
     return [projResp(p) for p in pl]
 
 
-app.config['MONGO_DBNAME'] = 'knoten'
-app.config['MONGO_URI'] = 'mongodb://admin1:test123@ds239578.mlab.com:39578/knoten?retryWrites=false'
-# app.config['JWT_SECRET_KEY'] = 'secret'
-
-mongo = PyMongo(app)
-# bcrypt = Bcrypt(app)
-# jwt = JWTManager(app)
-
-CORS(app)
-api = Api(app)
-
-
 class login(Resource):
     def get(self):
         users = mongo.db.users
@@ -60,12 +59,13 @@ class login(Resource):
         resp = users.find_one({'email': email})
         if resp:
             if users.find_one({'email': email})['password'] == password:
-                return jsonify({'result': 'sucess', 'user': userList(resp)})
+                return jsonify({'result': 'sucess', 'user': userResp(resp)})
         return jsonify({'result': "failed"})
 
 
 class signUp(Resource):
     def post(self):
+        print("ahhhhhhh")
         user = mongo.db.users
         first_name = request.get_json()['first_name']
         last_name = request.get_json()['last_name']
@@ -86,7 +86,7 @@ class signUp(Resource):
         })
         print(user_id)
         new_user = user.find_one({'_id': user_id})
-        return jsonify({'result': new_user['email']})
+        return jsonify({'result': str(user_id)})
 
 
 class getUser(Resource):
@@ -110,30 +110,34 @@ class projectCreation(Resource):
     def post(self):
         project = mongo.db.projects
         data = request.get_json()
+        print("helloooo kkkkkkkkkkkkkkk")
         proj = project.insert({
             "title": data['title'],
             "creator": data['creator'],
             "description": data['description'],
             "etat": False,
-            "fields": data['fields'],
+            "fields": data['fields'].split(' '),
             "member": [],
-            "request": []
+            "request": data['members'].split(' ')
         })
         if proj:
             return jsonify({"result": "success"})
         else:
             return jsonify({"result": "error"})
-
+    def get(self):
+        return "ani"
 
 class getProj(Resource):
-    def get(self):
+    def post(self):
         project = mongo.db.projects
         user = mongo.db.users
         data = request.get_json()
+
         projects = []
         if data['role'] == 'c':
             project = list(project.find())
             for i in project:
+                dict(i)['creator']
                 if dict(i)['creator'] == data['id']:
                     projects.append(dict(i))
         if data['role'] == 'p':
@@ -169,18 +173,24 @@ class searchProject(Resource):
                 if f in dict(p)['fields']:
                     if dict(p) not in resp:
                         resp.append(dict(p))
-        return jsonify({"result": projList(resp)})
+
+        resp = Response(jsonify({"result": projList(resp)}))
+        return resp
 
 
-api.add_resource(login, '/api/login/')
-api.add_resource(signUp, '/api/signUp/')
+api.add_resource(login, '/api/login')
+api.add_resource(signUp, '/api/signUp')
 api.add_resource(getUser, '/api/profile/get')
 api.add_resource(projectCreation, '/api/project/create')
-api.add_resource(getProj, '/api/project/get')
+api.add_resource(getProj, '/api/project/post')
 api.add_resource(searchProfile, '/api/search/profile')
 api.add_resource(searchProject, '/api/search/project')
+
+
 @app.route('/')
 def index():
-	return "salam alikoum"
+	return "cross"
+
+
 if __name__ == "__main__":
     app.run(debug=False)
